@@ -33,6 +33,12 @@ public class PokeTeamTest {
         driver.close();
     }
 
+
+    /*
+    This test is opening the site and choosing the pokemon in slot one, then selecting view all pokemon and selecting a specific pokemon
+    in the list and viewing it. It passes if the view page displays the chosen pokemon's name and in this case, Metagross was chosen.
+    Future runs may fail as newer pokemon may be added or metagross may be deleted.
+     */
     @Test
     public void ViewPokemonTest() throws InterruptedException {
         extent = new ExtentReports("C:\\Users\\VJ\\Documents\\Test Reports\\report.html", false);
@@ -60,6 +66,11 @@ public class PokeTeamTest {
         extent.flush();
 
     }
+
+    /*
+    This test opens the index page and chooses the option to add a new pokemon. It enters the required details and submits it.
+    And finally to check that it has been added, chooses the last entry in the redirected viewPC page and views it to confirm.
+     */
 
     @Test
     public void addPokemonTest() throws InterruptedException {
@@ -106,6 +117,12 @@ public class PokeTeamTest {
 
     }
 
+    /*
+    This test tests exchange by choosing the pokemon in the 1st slot, then press the exchange button on the view page
+    and switching the current pokemon with the first pokemon in the list ie Milotic. This test passes if Milotic is in one
+    of the six slots on the index page. Future runs may fail if Milotic is missing.
+     */
+
     @Test
     public void exchangeTest() throws InterruptedException {
         extent = new ExtentReports("C:\\Users\\VJ\\Documents\\Test Reports\\report.html", false);
@@ -132,6 +149,11 @@ public class PokeTeamTest {
         extent.flush();
 
     }
+
+    /*
+    This test is used to delete the last pokemon(for testing purposes) from the list of pokemon. It chooses the pokemon to be deleted(in this case Infernape is the second to last in the list)
+    and deletes it from the table. If the name still exists then the test fails. Else if its infernape which is now the last pokemon, it passes.
+     */
     @Test
     public void deleteTest() throws InterruptedException {
         extent = new ExtentReports("C:\\Users\\VJ\\Documents\\Test Reports\\report.html", false);
@@ -152,6 +174,12 @@ public class PokeTeamTest {
         extent.flush();
 
     }
+
+    /*
+    This test is used to test the editing of moves for a pokemon by first choosing to view entire list of pokemon. Then
+    it picks the first item in the list to edit and brings up the modal. It then inputs the information and submits it.
+    The test result is based on if the move in column move 1 of the chosen pokemon has been changed to the specified one.
+     */
 
     @Test
     public void EditPokemonTest() throws InterruptedException {
@@ -190,6 +218,11 @@ public class PokeTeamTest {
         extent.endTest(test);
         extent.flush();
     }
+
+    /*
+    This test tests the search function of the table by going to the list PC page and entering the name of a pokemon into the
+    field(Arcanine in this case) then checking if the returned result matches the name that should be returned.
+     */
 
     @Test
     public void searchTest() throws InterruptedException {
